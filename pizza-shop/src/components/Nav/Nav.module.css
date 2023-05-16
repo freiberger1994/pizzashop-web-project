@@ -1,0 +1,109 @@
+.header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--principal-color);
+    color: var(--white);
+    padding: 1.25rem;
+}
+
+.headerLogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    font-size: 2rem;
+    font-weight: var(--font-weight-800);
+}
+
+.headerUl {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    font-weight: var(--font-weight-600);
+}
+
+.headerItem {
+    position: relative;
+}
+
+.headerItem::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: .125rem;
+    top: 1.5625rem;
+    background-color: var(--white);
+    transition: all .1s ease-in-out;
+}
+
+.headerItem:hover::before {
+    width: 100%;
+}
+
+.headerItem:focus::before {
+    width: 100%;
+}
+
+.headerHamburguerIcon,
+.headerCloseIcon {
+    display: none;
+    font-size: 3rem;
+}
+
+.headerUserIcon {
+    border: 1px solid var(--white);
+    border-radius: 100%;
+    padding: .3rem .6rem;
+    transition: all .1s ease-in-out;
+}
+
+.headerUserIcon:hover {
+    background-color: var(--white);
+    color: var(--principal-color);
+}
+
+@media (width < 720px) {
+
+    .header {
+        justify-content: space-between;
+    }
+
+    .headerNav {
+        width: 100%;
+        position: absolute;
+        min-height: 100vh;
+        top: 0;
+        left: 0;
+        background-color: var(--principal-color);
+        transform: translateX(100%);
+        transition: all .1s ease;
+    }
+
+    .headerNavActive {
+        transform: translateX(30%);
+    }
+
+    .headerUl {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.5rem 0 0 2.5rem;
+        font-size: 1.5rem;
+        gap: 5rem;
+    }
+
+    .headerCloseDiv {
+        display: flex;
+        justify-content: flex-end;
+        width: 60%;
+    }
+
+    .headerHamburguerIcon,
+    .headerCloseIcon {
+        display: block;
+    }
+
+    .headerUserIcon {
+        padding: .7rem .9rem;
+    }
+}
